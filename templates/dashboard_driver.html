@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>You are now logged in as a driver.</p>
+        {% if session.get('username') %}
+        <a href="/view_profile">Go to Profile</a>
+        {% endif %}
+        
+        <a href="/logout">Logout</a>
+    </div>
+    <div> 
+        {% if vehicles %}
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>License Plate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehicle in vehicles %}
+                <tr>
+                    <td>{{ vehicle.make }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.year }}</td>
+                    <td>{{ vehicle.license_plate }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>You have no registered vehicles. <a href="/register_vehicle">Register a vehicle</a></p>
+{% endif %}
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>You are now logged in as a admin.</p>
+        {% if session.get('username') %}
+        <a href="/view_profile">Go to Profile</a>
+        {% endif %}
+
+
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Register Your Vehicle</h2>
+
+    <form method="POST">
+        <label for="make">Vehicle Make:</label>
+        <input type="text" id="make" name="make" required><br>
+
+        <label for="model">Vehicle Model:</label>
+        <input type="text" id="model" name="model" required><br>
+
+        <label for="year">Vehicle Year:</label>
+        <input type="number" id="year" name="year" required><br>
+
+        <label for="license_plate">License Plate:</label>
+        <input type="text" id="license_plate" name="license_plate" required><br>
+
+        <button type="submit">Register Vehicle</button>
+    </form>
+
+    <a href="/dashboard_driver">Back to Dashboard</a>
+
+</body>
+</html>
